@@ -7,7 +7,7 @@ require_once('modelo/Aposta.php');
 
 function listarCavalos($cavalos){
     foreach ($cavalos as $i => $cavalo) {
-        printf("%d- Número do cavalo | %s | Saúde do cavalo: %d/10", $i + 1, $cavalo->getNumCavalo(), $cavalo->getNomeCavalo(), $cavalo->getSaudeCavalo());
+        printf("%d- Número do cavalo | %s | Saúde do cavalo: %d / 10", $i + 1, $cavalo->getNumCavalo(), $cavalo->getNomeCavalo(), $cavalo->getSaudeCavalo());
     }
 }
 
@@ -25,9 +25,9 @@ $cavalos = [
 
 do {
     echo "\n\n-----------MENU-----------\n";
-    echo "1- Criar mago\n";
-    echo "2- Excluir mago\n";
-    echo "3- Listar magos \n";
+    echo "1- Apostar\n";
+    echo "2- Excluir aposta\n";
+    echo "3- Listar apostas \n";
     echo "0- Sair\n";
     echo "--------------------------\n";
     $opcao = readline("Informe a opção: ");
@@ -47,16 +47,20 @@ do {
                     $dinheiro->setValor(readline('Qual é o valor que seŕa apostado?'))->setDataAposta(readline('Que dia é hoje/Qual é a data da aposta?'));
 
                     listarCavalos($cavalos);
+                    
+                    //mudar para do-while
 
                     $id = readline('Informe o índice do cavalo que deseja apostar: ');
+
                     
                     for ($i=0; $i < count($cavalos); $i++) { 
                         
                         if ($id == $cavalos[$i]->getNumCavalo()) {
-                            
-                        }
-                        
+                            $dinheiro->setCavalo($cavalos[$i]);
+                            break;
+                        }                        
                     }
+
 
                 case 2: 
 
