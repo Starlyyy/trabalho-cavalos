@@ -3,23 +3,9 @@
 require_once('Cavalos.php');
 require_once('IApostar.php');
 
-class Aposta implements IApostar{
+class Aposta {
     protected string $dataAposta;
     protected Cavalos $cavalo;
-
-    //metodos
-
-    public function getAposta()
-    {
-        
-    }
-    
-    public function getResultado()
-    {
-        
-    }
-
-    //gets and sets
 
     public function getDataAposta(): string
     {
