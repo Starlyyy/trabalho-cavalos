@@ -29,23 +29,6 @@ function listarApostas($apostas){
     
 }
 
-function printCavalo(){
-    $dados = "                     ,%%%,\n"; 
-    $dados .= "                   ,%%%` %\n"; 
-    $dados .= "                  ,%%`( '|\n"; 
-    $dados .= "                 ,%%@ /\_/\n"; 
-    $dados .= "     ,%.-'''''--%%% '@@__\n";  
-    $dados .= "    %%/              |__`\ \n";
-    $dados .= "  .%%'\     |   \   /   //\n";
-    $dados .= "  ,%'  >  .'----\ |   [/\n"; 
-    $dados .= "      < <<`       ||\n";     
-    $dados .= "       `\\\\\\       ||\n";     
-    $dados .= "         )\\\      )\ \n";     
-    $dados .= " ^^^^^^^^'''^^^^^^''^^^^^\n";
-
-    return $dados;
-}
-
 function apostasVencedoras($apostas){
 
     $cavaloVencedor = rand(1,9);
@@ -83,7 +66,6 @@ function apostaDinheiro($aposta, $cavaloVencedor){
             $valorAposta * ($cavalo->getNumCavalo() / 5); //operador ternario - se a sentenca for verdadeira ent, blablabla, se nao, blablabla.
 
         $mensagem .= "Seu retorno será de R$ " . round($premio, 2) . ".\n\n";
-        $mensagem .= printCavalo() . "\n";
     } else {
         $mensagem .= " foi uma aposta..\nperdedora...\nQuem sabe na próxima :D\n\n";
     }
@@ -117,8 +99,7 @@ function apostaBem($aposta, $cavaloVencedor){
                 $mensagem .= "Como a qualidade é 5, ganhou uma camisa autografada pelo Loco Abreu!\n\n";
                 break;
         }
-
-        $mensagem .= printCavalo() . "\n";
+        
     } else {
         $mensagem .= " foi uma aposta..\nperdedora...\nQuem sabe na próxima :D\n\n";
     }
@@ -161,8 +142,6 @@ do {
             echo "Olá! Qual é o tipo de item que será apostado? \n1-Dinheiro\n2-Bens materiais\n\n";
             $op = (int)readline();
             echo "\n"; //pra deixar o terminal mais bonitinho.
-
-            printCavalo();
 
             switch($op) {
                 case 1:
